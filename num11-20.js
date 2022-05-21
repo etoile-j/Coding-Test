@@ -105,3 +105,50 @@ if (height >= 150) {
 } else {
     console.log('NO');
 }
+
+
+/* 18. 평균점수
+영하네 반은 국어, 수학, 영어 시험을 봤다.
+평균을 낼건데 공백으로 구분하여 세 과목의 점수가 주어지면
+전체 평균 점수를 구하는 프로그램을 작성하세요.
+단, 소숫점 자리는 모두 버립니다
+ex) 입력 : 20 30 40, 출력 : 30    */
+
+//나 for문 이용
+const score = prompt('점수를 공백으로 구분해 입력하세요.').split(' ');
+let average = 0;
+
+for (let i = 0; i < score.length; i++) {
+    average += parseInt(score[i]);
+}
+console.log(Math.floor(average / score.length));
+
+//나 for of문 이용
+for (i of score) {
+    average += parseInt(i);
+}
+let result = Math.floor(average / score.length);
+console.log(result);
+
+
+/* 19. 제곱을 구하자
+공백으로 구분해 두 숫자 a와 b가 주어지면, a의 b승을 구하는 프로그램을 작성하세요. */
+
+//나
+const nums = prompt('숫자 두 개를 공백으로 구분해 입력하세요.').split(' ');
+
+console.log(Math.pow(parseInt(nums[0]), parseInt(nums[1])));
+
+
+/* 20. 몫과 나머지
+공백으로 구분하여 두 숫자가 주어집니다.
+두 번째 숫자로 첫 번째 숫자를 나누었을 때 그 몫과 나머지를 공백으로 구분하여 출력하세요.
+ex) 입력 : 10 2, 출력 : 5 0 */
+
+//나
+const nums = prompt('숫자 두 개를 공백으로 구분해 입력하세요.').split(' ');
+
+let divide = parseInt(nums[0] / nums[1]);
+let rest = parseInt(nums[0] % nums[1]);
+
+console.log(divide, rest);
