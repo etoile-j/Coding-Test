@@ -34,3 +34,67 @@ ex) 입력 : mary 출력 : MARY     */
 const name = prompt('영문 이름을 입력하세요.');
 
 console.log(name.toUpperCase());
+
+
+/* 25. 원의 넓이를 구하세요
+원의 넓이는 '반지름의 길이 x 반지름의 길이 x 3.14'로 구할 수 있습니다.
+함수를 사용해 원의 넓이를 구하는 코드를 작성해봅시다.
+입력으로 반지름의 길이 정수 n이 주어지면 원의 넓이를 반환하는 함수를 만들어주세요. */
+
+//나
+function circle(n) {
+    return n * n * 3.14;
+}
+
+//답
+function circle(n) {
+    const result = n * n * 3.14;
+  
+    return result;
+}
+  
+const r = prompt("원의 반지름을 입력하세요.");
+  
+console.log(circle(r));
+// 함수 만들래서 입력값 받을 생각을 안 했다.
+
+
+/* 26. 행성문제2
+우리 태양계를 수금지화목토천해의 영어 이름은
+Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune이다.
+행성의 한글 이름을 입력하면 영어 이름을 반환하는 프로그램 만들어 주세요.    */
+
+//나
+const plenet = {
+    '수성': 'Mercury',
+    '금성': 'Venus',
+    '지구': 'Earth',
+    '화성': 'Mars',
+    '목성': 'Jupiter',
+    '토성': 'Saturn',
+    '천왕성': 'Uranus',
+    '해왕성': 'Neptune',
+}
+
+const korean = prompt('행성 이름을 한글로 입력하세요.');
+
+console.log(plenet[korean]);
+
+
+/* 27. 객체 만들기
+첫 번째 입력에서는 학생의 이름이 공백으로 구분되어 입력되고, 두 번째에는 그 학생의 수학 점수가 공백으로 구분되어 주어집니다.
+두 개를 합쳐 학생의 이름이 key이고 value가 수학점수인 객체를 출력해주세요
+ex) 입력 : Sujin Yujin 
+          100 70 
+    출력 : {'Sujin': 100, 'Yujin': 70}      */
+
+//나
+const names = prompt('이름을 공백으로 구분해 입력하세요.').split(' ');
+const scores = prompt('수학점수를 공백으로 구분해 입력하세요.').split(' ');
+let obj = {};
+
+for(let i=0;i<names.length;i++) {
+    obj[names[i]] = parseInt(scores[i]);
+}
+
+console.log(obj);
