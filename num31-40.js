@@ -41,3 +41,75 @@ for (let i=0; i<data.length; i++){
 }
 
 console.log(result);
+
+
+/* 34. sort 구현하기
+키 순서대로 서야함. 키가 주어지면 순서대로 제대로 섰는지 확인하는 프로그램 작성해보자.
+키는 공백으로 구분하여 입력됨.
+ex) 입력 : 176 156 158 165 167
+    출력 : NO
+    입력 : 156 158 165 167 176
+    출력 : YES       */
+
+//나
+const original = prompt('키를 숫자만 공백으로 구분해 입력해 주세요.');
+let sorted = original.split(' ').sort((a, b) => a - b).join(' ');
+
+if(original === sorted) {
+    console.log('YES');
+} else {
+    console.log('NO');
+}
+
+
+/* 35. Factory 함수 사용하기
+2제곱, 3제곱, 4제곱을 할 수 있는 Factory 함수 만드려고 합니다.
+<pass>에 코드를 작성해 two 함수를 완성하세요      */
+function one(n){
+    function two(){
+        //pass
+    }
+    return two;
+}
+
+const a = one(2);
+const b = one(3);
+const c = one(4);
+
+console.log(a(10));
+console.log(b(10));
+console.log(c(10));
+
+//나(pass부분 포함한 two함수 부분)
+//1
+function two(num) {
+    return Math.pow(num, n);
+}
+//2
+function two(num) {
+    return num ** n;
+}
+
+
+/* 36. 구구단 출력하기
+1~9까지 숫자 중 하나를 입력하면 그 단의 구구단 결과를 한 줄에 출력하는 프로그램 작성하세요.
+ex) 입력 : 2
+    출력 : 2 4 6 8 10 12 14 16 18   */
+
+//나
+const dan = prompt('출력되길 원하는 구구단의 단 수를 입력하세요.');
+result = [];
+for (let i = 1; i < 10; i++) {
+    result.push(dan * i);
+}
+console.log(result.join(' '));
+
+//답
+const num = prompt('1 ~ 9까지의 숫자 중 하나를 입력하세요.')
+let result = '';
+
+for (let i=1; i<=9; i++){
+  result += i*num + ' ';    //공백을 이렇게 따로 주고 문자열로 했어도 됐다!
+}
+
+console.log(result);
