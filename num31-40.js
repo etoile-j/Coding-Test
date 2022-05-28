@@ -9,8 +9,12 @@
 //나 3, 5번??
 //답은 3, 5
 
+//시간 복잡도: 어떤 알고리즘이 문제를 계산할 때 걸리는 시간
+
 //O(1): 문제를 해결하는데 오직 한 단계만 처리. 입력값이 증가하더라도 시간이 늘어나지 않는다.
 //slice(), includes- O(n): 입력값이 증가함에 따라 시간 또한 같은 비율로 증가하는 것을 의미한다.
+//3) : 슬라이스의 매개변수만큼 잘라서 새로운 배열을 반환함. 배열의 크기가 커지면 커질수록 사용되는 메모리가 많아진다.
+//5) : 배열에 매개변수 값이 들어있는지 true, false로 반환. 배열에 원소 개수가 많을 수록 메서드가 탐색할 값도 점점 많아짐
 
 
 /* 32. 문자열 만들기
@@ -122,7 +126,7 @@ ex) 입력 : 원범 원범 혜원 혜원 혜원 혜원 유진 유진
 
 //나
 const vote = prompt('공백으로 구분해 입력하세요.').split(' ');
-let obj= {};
+let obj = {};
 
 for (let i = 0; i < vote.length; i++) {
     if (!obj[vote[i]]) {
@@ -136,3 +140,49 @@ let winner = '';
 
 winner = Object.keys(obj).reduce((a, b) => obj[a] > obj[b] ? a : b);
 console.log(`${winner}(이)가 총 ${obj[winner]}표로 반장이 되었습니다.`);
+
+//답
+const array = prompt('이름을 입력해주세요.').split(' ');
+let result = {};
+let winner = "";
+
+for(let index in array){
+  let val = array[index];
+  result[val] = result[val] === undefined ? 1 : result[val] = result[val] + 1;
+}
+
+winner = Object.keys(result).reduce(function(a, b){
+  return result[a] > result[b] ? a : b
+});
+
+console.log(`${winner}(이)가 총 ${result[winner]}표로 반장이 되었습니다.`);
+
+
+/* 38. 호준이의 아르바이트
+매번 1위부터 3위까지의 학생에게 상으로 사탕을 준다.
+채점을 하고 점수를 보내면 아이들 숫자만큼 사탕을 사러 가기로 했다.
+1위~3위 학생은 여러명일 수 있고 1~3위 학생 중 중복되는 학생까지 포함하여 사탕을 사기로 한다.
+학생들의 점수를 공백으로 구분하여 입력을 받고 사탕을 받을 학생의 수를 출력하세요.
+ex) 입력 : 97 86 75 66 55 97 85 97 97 95
+    출력 : 6    */
+
+//나
+const scores = prompt('공백으로 구분해 점수를 입력하세요.').split(' ');
+let obj = {};
+
+for (let i = 0; i < scores.length; i++) {
+    if (!obj[scores[i]]) {
+        obj[scores[i]] = + 1;
+    } else {
+        obj[scores[i]]++;
+    }
+}
+
+objValue = Object.values(obj);
+
+let result = 0;
+result += objValue.pop();
+result += objValue.pop();
+result += objValue.pop();
+
+console.log(result);
