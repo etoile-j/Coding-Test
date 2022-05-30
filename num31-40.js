@@ -186,3 +186,61 @@ result += objValue.pop();
 result += objValue.pop();
 
 console.log(result);
+
+
+/* 39. 오타 수정하기
+문장이 입력되면 모든 q를 e로 바꾸는 프로그램을 작성해주세요.
+ex) 입력 : querty
+    출력 : euerty
+    입력 : hqllo my namq is hyqwon
+    출력 : hello my name is hyewon  */
+
+//나
+//첫 번째
+let input = prompt('영문장을 입력하세요.').split('');
+for (let i = 0; i < input.length; i++) {
+    if (input[i] === 'q') {
+        input[i] = 'e';
+    }
+}
+console.log(input.join(''));
+
+//두 번째
+const input = prompt('영문장을 입력하세요.');
+console.log(input.replace(/q/gm, 'e'));
+
+//이 방법도 있다
+const word = prompt('입력하세요.');
+
+function replaceAll(str, searchStr, replaceStr) {
+   return str.split(searchStr).join(replaceStr);
+}
+
+
+/* 40. 놀이동산에 가자
+모든 놀이기구는 한번에 타는 인원수에는 제한이 없지만 제한 무게를 넘으면 무조건 다음 기구를 타야 합니다.
+원범이와 친구들이 총 몇 명 탈 수 있는지 알 수 있는 프로그램을 작성해주세요.
+첫 번째 입력으로 제한 무게가 주어지고, 두 번째 입력으로는 함께한 친구들의 수 n이 주어집니다.
+그 다음 차례대로 탑승할 친구들의 몸무게가 주어집니다. 몸무게는 무작위로 주어집니다.
+ex) 입력 : 
+50
+5
+20
+20
+20
+20
+20
+출력 : 2    */
+
+//나
+let limit = parseInt(prompt('제한 무게'));
+const n = prompt('친구 수');
+let count = 0;
+
+for (let i = 1; i <= n; i++) {
+    limit -= parseInt(prompt('차례대로 탑승할 친구들의 무게를 한 명씩 입력하세요'));
+    if (limit >= 0) {
+        count++;
+    }
+}
+console.log(count);
