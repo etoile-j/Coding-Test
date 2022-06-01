@@ -61,3 +61,35 @@ for(let i=0; i<n.length;i++) {
     box += parseInt(n[i]);
 }
 console.log(box);
+
+
+/* 45. getTime()함수 사용하기
+Date객체의 메소드 중 하나인 getTime()은 1970년 1월 1일 0시 0분 0초 이후로부터
+지금까지 흐른 시간을 천분의 1초 단위(ms)로 반환합니다.
+이를 이용하여 현재 연도(2019)를 출력해보세요 */
+
+const d = new Date();
+
+let year = d.getTime();
+year = Math.floor(year/(3600*24*365*1000))+1970
+                       //1시간,일, 년, ms로 맞추려고!
+                       //1970을 더한 건, 1970 기준으로 52년 지났다고 나오기 때문
+console.log(year);
+
+
+/* 46. 각 자리수의 합 2
+1부터 20까지의(20포함) 모든 숫자를 일렬로 놓고 모든 자릿수의 총 합을 구하세요
+예로 10부터 15까지 모든 숫자 일렬로 놓으면 101112131415이고
+각 자리의 숫자를 더하면 21입니다.(1+0+1+1+1+2+1+3+1+4+1+5 = 21) */
+
+//나
+nums = '';
+for (let i = 1; i <= 20; i++) {
+    nums += i;
+}
+
+result = 0;
+for (let j = 0; j < nums.length; j++) {
+    result += parseInt(nums[j]);
+}
+console.log(result);
