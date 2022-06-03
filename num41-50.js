@@ -93,3 +93,37 @@ for (let j = 0; j < nums.length; j++) {
     result += parseInt(nums[j]);
 }
 console.log(result);
+
+
+/* 47. set 자료형의 응용
+중복된 데이터들을 삭제하여 실제 접수 명단이 몇 명인지 알고 싶습니다.
+아래 주어진 데이터들로부터 중복을 제거하여 실제 접수 인원을 출력해 주세요.  */
+const people = [
+    ('이호준', '01050442903'),
+    ('이호상', '01051442904'),
+    ('이준호', '01050342904'),
+    ('이호준', '01050442903'),
+    ('이준', '01050412904'),
+    ('이호', '01050443904'),
+    ('이호준', '01050442903'),
+];  
+
+//나
+console.log(new Set(people).size);
+
+
+/* 48. 대소문자 바꿔서 출력하기
+문자열이 주어지면 대문자와 소문자를 바꿔서 출력하는 프로그램을 작성하세요.
+ex) 입력 : AAABBBcccddd
+    출력 : aaabbbCCCDDD
+*/
+const input = prompt('영문자 입력');
+let result = '';
+for(let i=0;i<input.length;i++) {
+    if(input[i]===input[i].toLowerCase()) {
+        result+=input[i].toUpperCase();
+    } else {
+        result+=input[i].toLowerCase();
+    }
+}
+console.log(result);
