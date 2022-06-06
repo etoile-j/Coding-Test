@@ -127,3 +127,14 @@ for(let i=0;i<input.length;i++) {
     }
 }
 console.log(result);
+
+/* 49. 최댓값 구하기
+순서가 없는 10개의 숫자가 공백으로 구분되어 주어진다.
+주어진 숫자들 중 최댓값을 반환하라. 
+ex) 입력 : 10 9 8 7 6 5 4 3 2 1
+    출력 : 10       */
+//나
+const nums = prompt('공백으로 구분해 숫자를 입력하세요').split(' ');
+nums.sort((a, b) => b - a);
+const result = parseInt(nums[0]);
+console.log(result);
