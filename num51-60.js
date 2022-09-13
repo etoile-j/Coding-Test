@@ -116,7 +116,7 @@ const func = () => {
 func();
 
 /* 55. 하노이의 탑
-하노이의 탑은 A, B, C 3개의 기둥과 기둥에 꽂을 수 있는 N 개의 원판으로 이루어져 있습니다. 
+하노이의 탑은 A, B, C 3개의 기둥과 기둥에 꽂을 수 있는 N 개의 원판으로 이루어져 있습니다.
 이 게임에서는 다음의 규칙을 만족해야 합니다.
 
 1. 처음에 모든 원판은 A 기둥에 꽂혀 있다.
@@ -148,3 +148,26 @@ function hanoi(num, start, end, temp) {
 hanoi(3, 'A', 'B', 'C');
 console.log(route);
 console.log(route.length);
+
+/* 56. 객체의 함수 응용
+다음의 객체가 주어졌을 때 한국의 면적과 가장 비슷한 국가와 그 차이를 출력하세요. */
+//데이터
+nationWidth = {
+    korea: 220877,
+    Rusia: 17098242,
+    China: 9596961,
+    France: 543965,
+    Japan: 377915,
+    England: 242900,
+};
+//출력
+//England 22023
+
+//나
+const korea = nationWidth.korea;
+delete nationWidth.korea;
+
+const key = Object.keys(nationWidth);
+const value = Object.values(nationWidth).map((i) => Math.abs(i - korea));
+const minIndex = value.indexOf(Math.min(...value));
+console.log(key[minIndex], value[minIndex]);
