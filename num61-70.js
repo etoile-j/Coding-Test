@@ -258,7 +258,7 @@ arrival(time, bus);
 100 == 47 + 53
 56 == 19 + 37
 
-2보다 큰 짝수 n이 주어졌을 때, 골드바흐 파티션을 출력하는 코드를 작성하세요. 
+2보다 큰 짝수 n이 주어졌을 때, 골드바흐 파티션을 출력하는 코드를 작성하세요.
 
 * 해당 문제의 출력 형식은 자유롭습니다. 가능하시다면 골드바흐 파티션 모두를 출력하거나,
  그 차가 작은 것을 출력하거나 그 차가 큰 것 모두 출력해보세요. */
@@ -289,3 +289,35 @@ function Goldbach(num) {
     return console.log(goldbach);
 }
 Goldbach(100);
+
+/* 70. 행렬 곱하기
+행렬 2개가 주어졌을 때 곱할 수 있는 행렬인지 확인하고 곱할 수 있다면 그 결과를 출력하고,
+곱할 수 없다면 -1을 출력하는 프로그램을 만들어주세요.
+- 입력
+a = [[1, 2],
+	[2, 4]]
+
+b = [[1, 0],
+	[0, 3]]
+
+- 출력
+[[1, 6], [2, 12]]
+*/
+
+//나
+if (a[0].length !== b.length) {
+    console.log(-1);
+} else {
+    let row = a.length;
+    let column = b[0].length;
+    let result = Array.from(Array(row), () => Array(column).fill(0)); //배열 선언 및 초기화
+
+    for (let i = 0; i < a.length; i++) {
+        for (let j = 0; j < b[0].length; j++) {
+            for (let k = 0; k < b.length; k++) {
+                result[i][j] += a[i][k] * b[k][j];
+            }
+        }
+    }
+    console.log(result);
+}
