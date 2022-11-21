@@ -140,7 +140,7 @@ const input = prompt('몇 줄을 만들까요?');
 let star = '';
 
 for(let i = 0; i < input; i++) {   
-  for(let s=input; s > i; s--) {
+  for(let s = input; s > i; s--) {
       star += ' ';
   }
   for (let j = 0; j <= i * 2; j++) {
