@@ -72,3 +72,15 @@ function solution8(numbers) {
     }
     return answer;
 }
+
+// Day 3. 사칙연산, 배열, 수학
+//9. 나머지 구하기
+function solution9(num1, num2) {
+    return num1 % num2;
+}
+
+//10. 중앙값 구하기
+function solution(array) {
+    var answer = array.sort((a, b) => a - b);
+    return answer[Math.floor(answer.length / 2)];
+}
