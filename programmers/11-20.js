@@ -52,7 +52,7 @@ function solution6(numbers) {
 
 // Day 5. 수학, 배열
 //17. 옷 가게 할인 받기
-function solution(price) {
+function solution7(price) {
     if (price >= 500000) {
         return Math.floor(price * 0.8);
     } else if (price >= 300000) {
@@ -65,16 +65,16 @@ function solution(price) {
 }
 
 //18. 아이스 아메리카노
-function solution(money) {
+function solution8(money) {
     return [Math.floor(money / 5500), money % 5500];
 }
 
 //19. 나이 출력
-function solution(age) {
+function solution9(age) {
     return 2023 - age;
 }
 
 //20. 배열 뒤집기
-function solution(num_list) {
+function solution10(num_list) {
     return num_list.reverse();
 }
