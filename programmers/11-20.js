@@ -49,3 +49,32 @@ function solution6(numbers) {
     const result = numbers.reduce((prev, cur) => prev + cur);
     return result / numbers.length;
 }
+
+// Day 5. 수학, 배열
+//17. 옷 가게 할인 받기
+function solution(price) {
+    if (price >= 500000) {
+        return Math.floor(price * 0.8);
+    } else if (price >= 300000) {
+        return Math.floor(price * 0.9);
+    } else if (price >= 100000) {
+        return Math.floor(price * 0.95);
+    } else {
+        return price;
+    }
+}
+
+//18. 아이스 아메리카노
+function solution(money) {
+    return [Math.floor(money / 5500), money % 5500];
+}
+
+//19. 나이 출력
+function solution(age) {
+    return 2023 - age;
+}
+
+//20. 배열 뒤집기
+function solution(num_list) {
+    return num_list.reverse();
+}
