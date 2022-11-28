@@ -39,3 +39,42 @@ function solution4(my_string, n) {
     }
     return answer;
 }
+
+// Day 7. 문자열, 조건문, 수학, 반복문
+//25. 특정 문자 제거하기
+function solution5(my_string, letter) {
+    return my_string.replaceAll(letter, '');
+}
+
+//26. 각도기
+function solution6(angle) {
+    if (angle < 90) {
+        return 1;
+    } else if (angle === 90) {
+        return 2;
+    } else if (angle === 180) {
+        return 4;
+    } else if (90 < angle < 180) {
+        return 3;
+    }
+}
+
+//27. 양꼬치
+function solution7(n, k) {
+    var answer = n * 12000 + k * 2000;
+    if (n / 10 >= 1) {
+        return answer - Math.floor(n / 10) * 2000;
+    }
+    return answer;
+}
+
+//28. 짝수의 합
+function solution8(n) {
+    var answer = 0;
+    for (let i = 1; i <= n; i++) {
+        if (i % 2 === 0) {
+            answer += i;
+        }
+    }
+    return answer;
+}
