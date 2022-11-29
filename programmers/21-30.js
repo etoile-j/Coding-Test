@@ -78,3 +78,19 @@ function solution8(n) {
     }
     return answer;
 }
+
+// Day 8. 배열, 구현, 수학
+//29. 배열 자르기
+function solution9(numbers, num1, num2) {
+    return numbers.slice(num1, num2 + 1);
+}
+
+//30. 외계행성의 나이
+function solution10(age) {
+    const a = 'abcdefghij';
+    let answer = '';
+    for (let i = 0; i < age.toString().length; i++) {
+        answer += a[age.toString()[i]];
+    }
+    return answer;
+}
