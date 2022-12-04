@@ -103,3 +103,43 @@ function solution6(balls, share) {
     }
     return fac(balls) / (fac(balls - share) * fac(share));
 }
+
+// Day 10. 조건문, 배열, 수학, 시뮬레이션
+//37. 점의 위치 구하기
+function solution7(dot) {
+    if (dot[0] > 0 && dot[1] > 0) {
+        return 1;
+    } else if (dot[0] < 0 && dot[1] > 0) {
+        return 2;
+    } else if (dot[0] < 0 && dot[1] < 0) {
+        return 3;
+    } else {
+        return 4;
+    }
+}
+
+//38. 2차원으로 만들기
+function solution8(num_list, n) {
+    var answer = [];
+    for (let i = 0; i < num_list.length; i += n) {
+        answer.push(num_list.slice(i, i + n));
+    }
+    return answer;
+}
+
+//39. 공 던지기
+function solution9(numbers, k) {
+    return numbers[(2 * (k - 1)) % numbers.length];
+}
+
+//40. 배열 회전시키기
+function solution10(numbers, direction) {
+    if (direction === 'right') {
+        const num = numbers.splice(numbers.length - 1, 1);
+        numbers.unshift(...num);
+    } else {
+        const num = numbers.splice(0, 1);
+        numbers.push(...num);
+    }
+    return numbers;
+}
