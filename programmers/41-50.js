@@ -43,3 +43,43 @@ function solution4(n) {
     while (f * i < n) f *= ++i;
     return i;
 }
+
+// Day 12. 문자열, 정렬, 사칙연산, 수학
+//45. 모음 제거
+function solution5(my_string) {
+    return my_string.replaceAll(/[aeiou]/g, '');
+}
+
+//46. 문자열 정렬하기 (1)
+function solution6(my_string) {
+    const num = my_string.replaceAll(/[a-z]/g, '').split('');
+    return num.sort((a, b) => a - b).map((n) => parseInt(n));
+}
+
+//47. 숨어있는 숫자의 덧셈 (1)
+function solution7(my_string) {
+    var result = 0;
+    my_string
+        .replace(/[a-z, A-Z]/g, '')
+        .split('')
+        .map((a) => (result += parseInt(a)));
+    return result;
+}
+
+//48. 소인수분해
+function solution8(n) {
+    let answer = [];
+    let i = 2;
+    while (true) {
+        if (n % i === 0) {
+            n = n / i;
+            answer.push(i);
+            i = 1;
+        }
+        i++;
+        if (i > n) {
+            break;
+        }
+    }
+    return [...new Set(answer)];
+}
