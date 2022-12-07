@@ -83,3 +83,18 @@ function solution8(n) {
     }
     return [...new Set(answer)];
 }
+
+// Day 13. 문자열, 배열, 사칙연산, 수학, 조건문
+//49. 컨트롤 제트
+function solution9(s) {
+    const arr = s.split(' ');
+    while (arr.indexOf('Z') !== -1) {
+        arr.splice(arr.indexOf('Z') - 1, 2);
+    }
+    return arr.reduce((a, b) => a + Number(b), 0);
+}
+
+//50. 배열 원소의 길이
+function solution10(strlist) {
+    return strlist.map((i) => i.length);
+}
