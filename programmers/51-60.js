@@ -63,3 +63,60 @@ function solution6(my_string) {
     }
     return answer;
 }
+
+// Day 15. 문자열, 해시, 배열, 수학
+//57. 영어가 싫어요
+function solution7(numbers) {
+    const nums = [
+        'zero',
+        'one',
+        'two',
+        'three',
+        'four',
+        'five',
+        'six',
+        'seven',
+        'eight',
+        'nine',
+    ];
+    for (let i = 0; i < nums.length; i++) {
+        numbers = numbers.split(nums[i]).join(i);
+    }
+    return Number(numbers);
+}
+
+//58. 인덱스 바꾸기
+function solution8(my_string, num1, num2) {
+    let arr = my_string.split('');
+    [arr[num1], arr[num2]] = [arr[num2], arr[num1]];
+    return arr.join('');
+}
+
+//59. 한 번만 등장한 문자
+function solution9(s) {
+    let arr = s.split('');
+    let obj = {};
+    for (let i = 0; i < arr.length; i++) {
+        if (!obj[arr[i]]) {
+            obj[arr[i]] = +1;
+        } else {
+            obj[arr[i]]++;
+        }
+    }
+
+    let answer = [];
+    const arr2 = Object.entries(obj);
+    for (let j = 0; j < arr2.length; j++) {
+        if (arr2[j][1] === 1) answer.push(arr2[j][0]);
+    }
+    return answer.sort().join('');
+}
+
+//60. 약수 구하기
+function solution10(n) {
+    var answer = [];
+    for (let i = 1; i <= n; i++) {
+        if (n % i === 0) answer.push(i);
+    }
+    return answer;
+}
