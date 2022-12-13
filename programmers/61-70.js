@@ -25,3 +25,46 @@ function solution4(s1, s2) {
     }
     return answer;
 }
+
+// Day 17. 문자열, 수학, 조건문, 배열, 사칙연산
+//65. 숫자 찾기
+function solution5(num, k) {
+    let answer = num.toString().indexOf(k);
+    return answer > -1 ? answer + 1 : answer;
+}
+
+//66. n의 배수 고르기
+function solution6(n, numlist) {
+    var answer = [];
+    for (let i of numlist) {
+        if (i % n === 0) {
+            answer.push(i);
+        }
+    }
+    return answer;
+}
+
+//67. 자릿수 더하기
+function solution7(n) {
+    const answer = n.toString().split('');
+    return answer.reduce((p, c) => parseInt(p) + parseInt(c), 0);
+}
+
+//68. OX퀴즈
+function solution8(quiz) {
+    var answer = [];
+
+    for (let i = 0; i < quiz.length; i++) {
+        let a = quiz[i].split(' ');
+        if (a[1] === '-') {
+            Number(a[0]) - Number(a[2]) === Number(a[4])
+                ? answer.push('O')
+                : answer.push('X');
+        } else {
+            Number(a[0]) + Number(a[2]) === Number(a[4])
+                ? answer.push('O')
+                : answer.push('X');
+        }
+    }
+    return answer;
+}
