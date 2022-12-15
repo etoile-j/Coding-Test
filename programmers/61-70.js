@@ -68,3 +68,14 @@ function solution8(quiz) {
     }
     return answer;
 }
+
+// Day 18. 문자열, 수학, 조건문, 정렬
+//69. 문자열 안에 문자열
+function solution(str1, str2) {
+    return str1.indexOf(str2) > -1 ? 1 : 2;
+}
+
+//70. 제곱수 판별하기
+function solution(n) {
+    return Math.sqrt(n) === Math.floor(Math.sqrt(n)) ? 1 : 2;
+}
