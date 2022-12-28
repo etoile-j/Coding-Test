@@ -70,3 +70,32 @@ function solution4(spell, dic) {
     }
     return 2;
 }
+
+// Day 22. dp, 수학, 조건문, 배열
+//85. 저주의 숫자 3
+function solution5(n) {
+    let answer = 0;
+
+    for (let i = 0; i < n; i++) {
+        answer++;
+        while (answer % 3 === 0 || answer.toString().includes('3')) {
+            answer++;
+        }
+    }
+    return answer;
+}
+
+//86. 평행
+function solution6(dots) {
+    let answer = 0;
+    function comparison(f, s, t, fo) {
+        const a = (dots[f][0] - dots[s][0]) / (dots[f][1] - dots[s][1]);
+        const b = (dots[t][0] - dots[fo][0]) / (dots[t][1] - dots[fo][1]);
+        if (a == b) answer = 1;
+    }
+    comparison(0, 1, 2, 3);
+    comparison(0, 2, 1, 3);
+    comparison(0, 3, 1, 2);
+
+    return answer;
+}
