@@ -122,3 +122,31 @@ function solution7(lines) {
 function solution8(a, b) {
     return (a / b).toString().length > 10 ? 2 : 1;
 }
+
+// Day 23. 배열, 정렬, 문자열
+//89. 특이한 정렬
+function solution(numlist, n) {
+    return numlist.sort((a, b) => {
+        let [aGap, bGap] = [Math.abs(a - n), Math.abs(b - n)];
+        if (aGap === bGap) {
+            return b - a;
+        } else {
+            return aGap - bGap;
+        }
+    });
+}
+
+//90. 등수 매기기
+function solution10(score) {
+    let arr = [];
+    let answer = [];
+    for (let i = 0; i < score.length; i++) {
+        arr.push(score[i][0] + score[i][1]);
+    }
+    const sort = [...arr].sort((a, b) => b - a);
+
+    for (let j = 0; j < sort.length; j++) {
+        answer.push(sort.indexOf(arr[j]) + 1);
+    }
+    return answer;
+}
