@@ -64,3 +64,44 @@ function solution6(i, j, k) {
     }
     return count;
 }
+
+// Day 25. 시뮬레이션, 조건문, 수학
+//97. 문자열 밀기
+function solution7(A, B) {
+    let temp = 0;
+    let count = 0;
+    const arrA = A.split('');
+    for (let i = 0; i < arrA.length; i++) {
+        if (arrA.join('') === B) return count;
+        temp = arrA.pop();
+        arrA.unshift(temp);
+        count++;
+    }
+    return -1;
+}
+
+//98. 종이 자르기
+function solution8(M, N) {
+    return M * N - 1;
+}
+
+//99. 연속된 수의 합
+function solution9(num, total) {
+    var min = Math.ceil(total / num - Math.floor(num / 2));
+    var max = Math.floor(total / num + Math.floor(num / 2));
+
+    return new Array(max - min + 1).fill(0).map((el, i) => {
+        return i + min;
+    });
+}
+
+//100. 다음에 올 숫자
+function solution10(common) {
+    if (common[1] - common[0] === common[2] - common[1]) {
+        const gap = common[1] - common[0];
+        return common.pop() + gap;
+    } else {
+        const gap = common[1] / common[0];
+        return common.pop() * gap;
+    }
+}
