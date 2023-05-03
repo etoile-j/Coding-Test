@@ -13,3 +13,12 @@ function solution(skill, skill_trees) {
     }
     return answer;
 }
+
+function solution2(skill, skill_trees) {
+    let answer = 0;
+    let regex = new RegExp(`[^${skill}]`, 'g');
+
+    return skill_trees
+        .map((v) => v.replace(regex, ''))
+        .filter((v) => skill.indexOf(v) === 0 || v === '').length;
+}
