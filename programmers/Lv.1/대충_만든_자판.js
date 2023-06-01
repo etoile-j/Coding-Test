@@ -18,5 +18,14 @@ function solution(keymap, targets) {
         }
         answer.push(targetSum);
     }
+    // 이부분 다른 방법
+    for (let i = 0; i < targets.length; i++) {
+        answer.push(
+            targets[i]
+                .split('')
+                .reduce((prev, cur) => prev + keymapObj[cur], 0) || -1
+        );
+    }
+
     return answer;
 }
