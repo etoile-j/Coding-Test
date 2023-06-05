@@ -36,3 +36,27 @@ function solution(fees, records) {
     }
     return answer;
 }
+
+function solution2(fees, records) {
+    const recordsObj = {};
+    for (let i = 0; i < records.length; i++) {
+        let record = records[i].split(' ');
+        let [h, m] = record[0].split(':');
+        let time = Number(h) * 60 + Number(m);
+        if (recordsObj[record[1]] === undefined)
+            recordsObj[record[1]] = 1439 - time;
+        else if (record[2] === 'IN') recordsObj[record[1]] += 1439 - time;
+        else recordsObj[record[1]] -= 1439 - time;
+    }
+
+    const answer = Object.keys(recordsObj).sort((a, b) => a - b);
+    for (let j = 0; j < answer.length; j++) {
+        if (recordsObj[answer[j]] <= fees[0]) answer[j] = fees[1];
+        else
+            answer[j] =
+                fees[1] +
+                Math.ceil((recordsObj[answer[j]] - fees[0]) / fees[2]) *
+                    fees[3];
+    }
+    return answer;
+}
