@@ -17,3 +17,19 @@ function solution(players, callings) {
     rankingMap.forEach((v) => answer.push(v));
     return answer;
 }
+
+// 배열 + 객체
+function solution2(players, callings) {
+    const rankingObj = {};
+    players.forEach((name, ranking) => (rankingObj[name] = ranking));
+
+    for (let call of callings) {
+        let ranking = rankingObj[call];
+        let name = players[ranking - 1];
+        rankingObj[call]--;
+        rankingObj[name]++;
+        players[ranking] = name;
+        players[ranking - 1] = call;
+    }
+    return players;
+}
