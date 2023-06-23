@@ -12,3 +12,11 @@ function solution(arr1, arr2) {
     }
     return answer;
 }
+
+function solution2(arr1, arr2) {
+    return arr1.map((row) =>
+        arr2[0].map((_, i) =>
+            row.reduce((pre, rowNum, idx) => pre + rowNum * arr2[idx][i], 0)
+        )
+    );
+}
