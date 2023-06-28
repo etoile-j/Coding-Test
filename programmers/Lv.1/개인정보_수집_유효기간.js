@@ -40,3 +40,25 @@ function solution(today, terms, privacies) {
     }
     return answer;
 }
+// privacies + terms 한 거랑 today를 년, 월, 일 각 각 비교해서 지났을 경우 answer 배열에 푸시
+// 년월일을 다 일로 풀어서 계산하는 방법도 있음
+
+// Date 객체 활용 풀이
+function solution2(today, terms, privacies) {
+    const answer = [];
+    today = new Date(today);
+    const termsObj = {};
+    for (let p = 0; p < terms.length; p++) {
+        termsObj[terms[p][0]] = Number(terms[p].slice(2));
+    }
+
+    for (const i in privacies) {
+        let [day, term] = privacies[i].split(' ');
+        day = new Date(day);
+
+        day.setMonth(day.getMonth() + termsObj[term]);
+
+        if (today >= day) answer.push(Number(i) + 1);
+    }
+    return answer;
+}
