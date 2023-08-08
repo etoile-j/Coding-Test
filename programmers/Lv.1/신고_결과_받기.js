@@ -26,3 +26,23 @@ function solution(id_list, report, k) {
 
     return answer;
 }
+
+function solution2(id_list, report, k) {
+    const reports = [...new Set(report)].map((v) => v.split(' '));
+
+    const badIdCount = {};
+    for (const report of reports) {
+        if (!badIdCount[report[1]]) badIdCount[report[1]] = 1;
+        else badIdCount[report[1]]++;
+    }
+
+    const good = new Map();
+    for (const report of reports) {
+        if (badIdCount[report[1]] >= k) {
+            good.set(report[0], good.get(report[0]) + 1 || 1);
+        }
+    }
+
+    let answer = id_list.map((a) => good.get(a) || 0);
+    return answer;
+}
