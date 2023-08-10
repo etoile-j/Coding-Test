@@ -27,3 +27,25 @@ function solution(k, dungeons) {
     dfs([], list);
     return maxCount;
 }
+
+function solution2(k, dungeons) {
+    const visited = new Array(dungeons.length).fill(0);
+    let maxCount = 0;
+
+    function dfs(k, depth) {
+        maxCount = Math.max(depth, maxCount);
+
+        for (let i = 0; i < dungeons.length; i++) {
+            const [minimum, use] = dungeons[i];
+
+            if (k >= minimum && !visited[i]) {
+                visited[i] = 1;
+                dfs(k - use, depth + 1);
+                visited[i] = 0;
+            }
+        }
+    }
+
+    dfs(k, 0);
+    return maxCount;
+}
