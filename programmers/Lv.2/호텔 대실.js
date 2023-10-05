@@ -23,3 +23,26 @@ function solution(book_time) {
 
     return rooms.length;
 }
+
+// 하루 시간 분 단위만큼의 0이 든 배열 만들고,
+// 각 객실 이용 시간에 포함되는 분을 모두 +1, 배열의 가장 큰 값 리턴하는 방법
+function makeMinStamp(time) {
+    const [hour, min] = time.split(':').map((v) => Number(v));
+    return hour * 60 + min;
+}
+
+function solution(book_time) {
+    const timeArr = Array.from({ length: makeMinStamp('23:59') + 10 }, () => 0);
+
+    book_time.forEach((time) => {
+        const [s, e] = time;
+        let start = makeMinStamp(s);
+        const end = makeMinStamp(e) + 9;
+
+        for (start; start <= end; start++) {
+            timeArr[start]++;
+        }
+    });
+
+    return Math.max(...timeArr);
+}
